@@ -1,0 +1,22 @@
+<%@ page language="java" import="java.sql.*" %>
+<%
+	String str=request.getParameter("value");	
+	String S=(String)session.getAttribute("uname");
+	
+		try{
+		Class.forName("org.postgresql.Driver");	
+		Connection con=DriverManager.getConnection("jdbc:postgresql://192.168.16.1/AG25","AG25","");
+
+		PreparedStatement pst=null;
+		pst=con.prepareStatement("insert into mem_book values(?,?,?)");
+		pst.setString(1,S);
+		pst.setInt(2,Integer.parseInt(str));
+		pst.setInt(3,0);
+		int i=pst.executeUpdate();
+		if(i>0)
+		{
+			response.sendRedirect("sure.jsp");
+		}
+		}
+	catch(Exception e){}
+%>

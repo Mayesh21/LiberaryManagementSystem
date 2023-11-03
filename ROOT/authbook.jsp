@@ -1,0 +1,67 @@
+<html>
+<head>
+<style>
+body{
+	background-image:url("issue.jpg");
+	height:100px;
+	width:100px;
+	
+	background-size:cover;	
+	background-repeat:no-repeat;
+ }
+a{
+	text-decoration:none;
+	color:black;
+	width:300px;
+	height:50px;
+	font-size:20px;
+	font-style:bold;
+	display:inline-block;
+}
+a:hover{	
+	 color:black;
+	background:#26A69A;
+	border-radius:8px;
+	width:300px;
+	height:25px;
+	display:inline-block;
+	shadow:black;
+	text-align:center;
+}
+.xy {
+	background-color:#3498DB;
+	color:white;
+	font-size:20px;
+	border-color:#3498DB
+	}
+</head>	
+</style>
+
+
+<body>
+<form method="get" action="author.jsp">
+&nbsp&nbsp<input class="xy" type="submit" value="<--"><br><br></form>
+<%@ page language="java" import="java.sql.*" %>
+<%
+	int i;
+	String str=request.getParameter("value");	
+	String S=(String)session.getAttribute("uname");
+	Class.forName("org.postgresql.Driver");	
+	Connection con=DriverManager.getConnection("jdbc:postgresql://192.168.16.1/AG25","AG25","");
+
+	PreparedStatement pst=null;
+	ResultSet rs;
+	
+		//out.println(str);
+
+	pst=con.prepareStatement("select book_id,name from books where author=?");
+	pst.setString(1,str);
+	
+	rs=pst.executeQuery();
+	while(rs.next())
+	{%>
+		<a href="success.jsp?value=<% out.println(rs.getInt(1)); %>"> <% out.println(rs.getString(2)); %> </a><br>
+	<%}
+%>
+</body></html>
+	

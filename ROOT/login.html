@@ -1,0 +1,83 @@
+<html>
+<head>
+<script>
+function validateForm()
+{
+ var uname=document.forms["myForm"]["uname"].value;
+ var pwd=document.forms["myForm"]["pwd"].value;
+ 
+ if(uname==null || uname=="")
+ {	alert("Username cannot be empty");
+	document.myForm.uname.focus();
+	return false;
+ }
+ if(pwd==null || pwd=="")
+ {	alert("Password cannot be empty");
+	document.myForm.pwd.focus();
+	return false;
+ }
+}
+</script>
+<style>
+.b{	
+	background-image:url("login.jpg");
+	height:100%;
+	width:100%;
+	
+ }
+.a{background-color:lightblue;
+	text-align:left;
+	height:40%;
+	width:30%;
+	border-radius:16px;
+	position:relative;
+	top:100px;
+	left:390px;
+	bottom:40px;
+}
+.x{
+	color:white;
+	text-size:20;
+	background-color:green;
+	height:40px;
+	width:197px;
+	border-radius:4px;
+	box-shadow:lightgrey;	
+}
+.x:hover{
+	color:white;
+	background:green;
+	height:45px;
+	width:200px;
+	display:inline-block;
+	box-shadow:5px 5px grey;
+	}
+.pq {
+	background-color:darkblue;
+	color:white;
+	font-size:20px;
+	border-color:#3498DB
+	}
+</style>
+
+</head>
+
+<body >
+
+<div class="b"><br>
+<form method="get" action="main.jsp">
+&nbsp&nbsp<input class="pq" type="submit" value="<--"><br></form>
+
+<h1> <center>Login </center></h1>
+<div class="a">
+<form name="myForm" method="get" onsubmit="return validateForm()" action="login.jsp" >
+<br>
+&nbsp&nbspUsername<br>
+&nbsp&nbsp<input type="text" name="uname" placeholder="Enter Username"><br><br>
+&nbsp&nbspPassword<br>
+&nbsp&nbsp<input type="password" name="pwd" placeholder="Enter Password"><br><br>
+
+&nbsp&nbsp<input class="x" type="submit" value="Login" width="30">
+</div>
+</form> 
+</div></body> </html>

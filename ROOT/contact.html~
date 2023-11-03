@@ -1,0 +1,34 @@
+<html>
+<head>
+
+
+<style>
+
+body{	
+	background-image:url("issue.jpg");
+	background-size:100% 200%;
+	background-repeat:no-repeat;
+ }
+.xy {
+	background-color:#3498DB;
+	color:white;
+	font-size:20px;
+	border-color:#3498DB
+}
+
+</style>
+</head>
+
+<body>
+<form method="get" action="main.jsp">
+<input class="xy" type="submit" value="<--"><br></form>
+<br>
+<align="left"><h2>Contact Us</h2><br><br><br>
+<b>Principal : </b>Dr. Ravindrasing G. Pardeshi<br><br>
+<b>Address : </b>Fergusson College, F.C. Road, Pune 411004<br><br>
+<b>Email : </b>principal@fergusson.edu<br><br>
+<b>Phone : </b>020-67656000<br><br>
+<b>Contact Time : </b>11:00 am-1:00pm(by prior appointment)<br><br>
+</align>
+</body>
+</html>

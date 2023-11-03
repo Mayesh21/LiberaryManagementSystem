@@ -1,0 +1,40 @@
+<html>
+<%@ page language="java" import="java.sql.*,java.text.SimpleDateFormat, java.util.Date" %>
+<%
+	java.util.Date d1=new java.util.Date();
+	SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+	String msg=sdf.format(d1);
+		
+		
+	
+
+	Class.forName("org.postgresql.Driver");	
+	Connection con1=DriverManager.getConnection("jdbc:postgresql://192.168.16.1/TYAG13","TYAG13","");
+
+	PreparedStatement pst1=null;
+	ResultSet rs1;
+	
+	
+	
+	pst1=con.prepareStatement("select mname,name from member_login,books,mem_book where member_login.u_name=mem_book.u_name and books.book_id=mem_book.book_id and datee=?");
+	pst1.setString(1,msg);
+	%><center>
+	<table background-img="03.png" cellspacing=17px cellpadding=15px>
+	<tr>
+	
+	<th>Member Name</th>
+	<th>Book name</th>
+	</tr><%
+	rs1=pst1.executeQuery();
+	while(rs.next())
+	{
+	%>
+	<tr>
+	<td>&nbsp<% out.println(rs.getString(1));%></td>
+	<td>&nbsp<% out.println(rs.getString(2));%><br></td>
+	</tr>
+	<%
+	}
+	
+%>
+</html>

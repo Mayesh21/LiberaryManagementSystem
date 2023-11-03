@@ -1,0 +1,147 @@
+<html>
+<head>
+<script>
+function validateForm()
+{
+ var name=document.forms["myForm"]["name"].value;
+ var unm=document.forms["myForm"]["unm"].value;
+ var pwd=document.forms["myForm"]["pwd"].value;
+ var cno=document.forms["myForm"]["cno"].value;
+ var addr=document.forms["myForm"]["addr"].value;
+ 
+ if(name==null || name=="")
+ {	alert("Username cannot be empty");
+	document.myForm.name.focus();
+	return false;
+ }
+ if(!isNaN(name))
+ {
+	alert("Name should have only Alphabets");
+	document.myForm.name.focus();
+	return false;
+ }
+ if(unm==null || unm=="")
+ {	alert("Username cannot be empty");
+	document.myForm.unm.focus();
+	return false;
+ }
+ if(unm.length < 4 || unm.length>8)
+ {
+	alert("Username should range between 4-8 characters");
+	document.myForm.unm.focus();
+	return false;
+ }
+ if(pwd==null || pwd=="")
+ {	alert("Password cannot be empty");
+	document.myForm.pwd.focus();
+	return false;
+ }
+ if(pwd.length > 8 || pwd.length < 3)
+ {
+	alert("Password should range between 3-8 characters");
+	document.myForm.pwd.focus();
+	return false;
+ }
+ if(cno==null || cno=="")
+ {	alert("Phone Number cannot be empty");
+	document.myForm.cno.focus();
+	return false;
+ }
+ if(cno.length!=10)
+ {
+	alert("Invalid Phone number. Phone number must have 10 digits only!");
+	document.myForm.cno.focus();
+	return false;
+ }
+ if(isNaN(cno))
+ {
+ 	alert("Phone number should contain only digits !");
+	document.myForm.cno.focus();
+	return false;
+ }
+ if(addr==null || addr=="")
+ {	alert("Address cannot be empty");
+	document.myForm.addr.focus();
+	return false;
+ }
+}
+ 
+</script>
+<style>
+.b{	
+	background-image:url("images.jpg");
+	background-size:100% 100%;	
+	background-repeat:no-repeat;
+ }
+.a{background-color:lightblue;
+	text-align:left;
+	height:78%;
+	width:30%;
+	border-radius:16px;
+	position:relative;
+	top:2px;
+	left:20px;
+	bottom:30px;
+}
+.x{
+	color:white;
+	text-size:20;
+	background-color:green;
+	height:40px;
+	width:197px;
+	border-radius:4px;
+	box-shadow:lightgrey;	
+}
+.x:hover{
+	color:white;
+	background:green;
+	height:45px;
+	width:200px;
+	display:inline-block;
+	box-shadow:5px 5px lightgrey;
+	}
+h1{
+	color:red;
+  }
+.abc{
+	width:70%;
+	height:15%;
+	position:relative;
+	border:1px solid black;
+	bottom:12px;
+	left:150px;
+	background-color:pink;
+	opacity:0.9;
+}
+.xy {
+	background-color:#3498DB;
+	color:white;
+	font-size:20px;
+	border-color:#3498DB
+	}	
+</style>
+</head>
+
+<body >
+
+<div class="b">
+<form method="get" action="main.jsp"><br>
+&nbsp&nbsp<input class="xy" type="submit" value="<--"></form>
+
+<form name="myForm" method="get" action="signup.jsp" onsubmit="return validateForm()" >
+<div class="abc"><h1><center> Kindly Sign up to Log in </center></h1></div>
+<div class="a"><br>
+&nbsp&nbspName<br>
+&nbsp&nbsp<input type="text" name="name" placeholder="Enter Name"><br><br>
+&nbsp&nbspUsername<br>
+&nbsp&nbsp<input type="text" name="unm" placeholder="Enter Username"><br><br>
+
+&nbsp&nbspPassword<br>
+&nbsp&nbsp<input type="password" name="pwd" placeholder="Enter Password"><br><br>
+&nbsp&nbspContact number<br>
+&nbsp&nbsp<input type="text" name="cno" placeholder="Enter Contact number"><br><br>
+&nbsp&nbspAddress<br>
+&nbsp&nbsp<input type="text" name="addr" placeholder="Enter Address"><br><br>
+&nbsp&nbsp<input class="x" type="submit" name="s2" value="Sign Up"><br>
+</div></div>
+</form> </body></html>
